@@ -2,53 +2,34 @@
 
 var service=require('./service');
 const readLine=require('readline');
+const infos=require('./data/commandes');
 const out=console.log;
 const rl = readLine.createInterface({
     input: process.stdin,
     output: process.stdout
     });
-var repondALaCommande=function(commande,nomfonction){
-    var i=0;
-    if(commande==1){
-        out(service.listerTousLesPresentateurs().filter(function(speaker){
-                i++;return i<nb;
-            }
-        ));
-        return;
-    }
-    if(commande==2){
-        out(service.listerTopPresentateurs());
-        return;
-    }
-    if(commande==3){
-        out(service.listerToutesLesSessions().filter(function(speaker){
-            i++;return i<nb;
-            }
-        ));
-        return;
-    }
-    if(commande==4){
-
-        rl.question('Quel session voulez-vous voir ? ', (idSession) => {
-            out(service.trouverUneSession(idSession));
-        });    
-
-        return;   
-    }
+var repondALaCommande=function(commande,nomfonction,nbArg,args){
     if(commande==99){
         rl.close();
         process.exit();
     }
+    if(nbArg=0){
+        nomFonction();
+        return;
+    }
+    for(var i=0;i<nbArg;i++){
+        if(i==0){
+            var arguments=args[0];
+            contiue;
+        }
+        arguments+=","+args[i];
+    } 
+    nomfonction.apply(arguments);
 }
 
 function menu(){
-    out('*** ApplicationCoonférence ***');
-    out('1. Liste de tous les présentateurs');
-    out('2. Top présentateurs');
-    out('3. Liste des sessions');
-    out('4. Détail d\'une session');
     rl.question('', (answer) => {
-        repondALaCommande(answer);
+        repondALaCommande(answer,commandes);
     });
     clearInterval(programme);
 }
