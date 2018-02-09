@@ -55,12 +55,16 @@ console.log(steve.numCli);
 var Test=function(nom1,pre,pseud,numeroClient){
    Personne.call(this,nom1,pre,pseud);
    this.numCli=numeroClient;
-   
+   /*this.getNomComplet=function(titre){
+        return titre;
+   }
+   Demo polymorphisme comme surcharge
+   */
  }
 
 testa=new Test('Tester','tessa','tes01','A4');
 
-console.log(testa.getNomComplet());
+console.log(testa.getNomComplet());//"titl"
 
 console.log(testa.numCli);
 //console.log(testa.afficheNom()); Affiche nom n'est pas transportée aux sous-classes.
