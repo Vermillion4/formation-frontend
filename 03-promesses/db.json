@@ -1,0 +1,45 @@
+{
+    "ids_store": [
+        {
+            "email" : "1@1.fr",
+            "id" : 1
+        },
+        {
+            "email" : "2@2.fr",
+            "id" : 2
+        },
+        {
+            "email" : "3@3.fr",
+            "id" : 3
+        }
+    ],
+
+    "persons_store":  [
+        {
+            "id" : 1,
+            "token": "1AAA1"
+        },
+        {
+            "id" : 2,
+            "token": "1AAA2"
+        },
+        {
+            "id" : 3,
+            "token": "1AAA3"
+        }
+    ],
+    "secrets_store":  [
+        {
+            "secret" : "je suis un assassin",
+            "token": "1AAA1"
+        },
+        {
+            "secret" : "je suis une patate",
+            "token": "1AAA2"
+        },
+        {
+            "secret" : "je suis un illuminati",
+            "token": "1AAA3"
+        }
+    ]
+}
